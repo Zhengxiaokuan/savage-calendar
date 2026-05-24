@@ -1,0 +1,77 @@
+<view class="page-calendar">
+  <!-- 统计卡片 -->
+  <view class="stats-bar">
+    <view class="stat-item">
+      <text class="stat-value">{{stats.totalDays}}</text>
+      <text class="stat-label">训练天数</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-value">{{stats.totalExercises}}</text>
+      <text class="stat-label">总动作</text>
+    </view>
+    <view class="stat-divider"></view>
+    <view class="stat-item">
+      <text class="stat-value">{{stats.totalSets}}</text>
+      <text class="stat-label">总组数</text>
+    </view>
+  </view>
+
+  <!-- 日历组件 -->
+  <calendar
+    year="{{year}}"
+    month="{{month}}"
+    markedDates="{{markedDates}}"
+    bind:monthChange="onMonthChange"
+    bind:dateTap="onDateTap"
+  />
+
+  <!-- 选中日期的操作区 -->
+  <view class="action-area">
+    <view class="selected-date-info">
+      <text class="selected-date-text">{{selectedDate}}</text>
+      <text wx:if="{{isToday}}" class="today-badge">今天</text>
+    </view>
+
+    <view wx:if="{{selectedWorkout}}" class="workout-preview">
+      <view class="preview-header">
+        <text class="preview-title">训练记录</text>
+        <text class="preview-count">{{selectedWorkout.exercises.length}} 个动作</text>
+      </view>
+      <view class="preview-exercises">
+        <view
+          wx:for="{{selectedWorkout.exercises.slice(0, 3)}}"
+          wx:key="exerciseId"
+          class="preview-exercise"
+        >
+          <text class="preview-exercise-name">{{item.name}}</text>
+          <text class="preview-exercise-sets">{{item.sets.length}}组</text>
+        </view>
+        <view wx:if="{{selectedWorkout.exercises.length > 3}}" class="preview-more">
+          <text>还有 {{selectedWorkout.exercises.length - 3}} 个动作...</text>
+        </view>
+      </view>
+      <view class="action-buttons">
+        <van-button round block type="info" bind:click="onEditWorkout">编辑训练</van-button>
+        <van-button round block plain bind:click="onViewDetail">查看详情</van-button>
+      </view>
+    </view>
+
+    <view wx:else class="action-placeholder">
+      <van-empty description="该日尚无训练记录">
+        <van-button round type="primary" size="small" bind:click="onAddWorkout">添加训练</van-button>
+      </van-empty>
+    </view>
+  </view>
+
+  <!-- 底部动作库入口 -->
+  <view class="bottom-nav">
+    <van-button
+      icon="bars"
+      plain
+      round
+      size="small"
+      bind:click="onManageExercises"
+    >动作库管理</van-button>
+  </view>
+</view>

@@ -1,0 +1,164 @@
+.page-history {
+  min-height: 100vh;
+  padding-bottom: var(--spacing-xl);
+}
+
+.loading-state {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 200rpx;
+}
+
+/* 头部 */
+.history-header {
+  background: var(--bg-secondary);
+  margin: var(--spacing-md);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-md);
+}
+
+.history-date {
+  font-size: 36rpx;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.header-stats {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.header-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-stat-value {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.header-stat-label {
+  font-size: 22rpx;
+  color: var(--text-muted);
+  margin-top: 4rpx;
+}
+
+.header-stat-divider {
+  width: 1rpx;
+  height: 48rpx;
+  background: var(--border-color);
+}
+
+/* 动作详情 */
+.exercise-detail-list {
+  padding: 0 var(--spacing-md);
+}
+
+.exercise-detail-card {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.exercise-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-sm);
+}
+
+.exercise-detail-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* 组详情表格 */
+.sets-detail-header {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xs) 0;
+  border-bottom: 1rpx solid var(--border-color);
+  margin-bottom: var(--spacing-xs);
+}
+
+.sd-col-number {
+  width: 80rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: var(--text-muted);
+}
+
+.sd-col-reps {
+  flex: 1;
+  text-align: center;
+  font-size: 22rpx;
+  color: var(--text-muted);
+}
+
+.sd-col-weight {
+  flex: 1;
+  text-align: center;
+  font-size: 22rpx;
+  color: var(--text-muted);
+}
+
+.sets-detail-row {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-sm) 0;
+}
+
+.sets-detail-row .sd-col-number {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+.sets-detail-row .sd-col-reps {
+  font-size: 28rpx;
+  color: var(--text-primary);
+}
+
+.sets-detail-row .sd-col-weight {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+/* 备注 */
+.note-section {
+  margin: 0 var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+}
+
+.note-label {
+  font-size: 24rpx;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: var(--spacing-xs);
+}
+
+.note-text {
+  font-size: 28rpx;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* 编辑按钮 */
+.history-actions {
+  margin: var(--spacing-lg) var(--spacing-md);
+}

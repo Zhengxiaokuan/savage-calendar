@@ -1,0 +1,71 @@
+<view class="page-history">
+  <!-- 加载中 -->
+  <view wx:if="{{loading}}" class="loading-state">
+    <van-loading />
+  </view>
+
+  <!-- 训练详情 -->
+  <view wx:else class="history-content">
+    <!-- 头部信息 -->
+    <view class="history-header">
+      <view class="header-top">
+        <van-icon name="underway-o" size="40rpx" />
+        <text class="history-date">{{date}}</text>
+      </view>
+      <view class="header-stats">
+        <view class="header-stat">
+          <text class="header-stat-value">{{stats.totalExercises}}</text>
+          <text class="header-stat-label">个动作</text>
+        </view>
+        <view class="header-stat-divider"></view>
+        <view class="header-stat">
+          <text class="header-stat-value">{{stats.totalSets}}</text>
+          <text class="header-stat-label">总组数</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 动作列表 -->
+    <view class="exercise-detail-list">
+      <view
+        wx:for="{{record.exercises}}"
+        wx:key="exerciseId"
+        class="exercise-detail-card"
+      >
+        <view class="exercise-detail-header">
+          <text class="exercise-detail-name">{{item.name}}</text>
+          <van-tag type="primary" plain>{{item.category}}</van-tag>
+        </view>
+
+        <!-- 组详情 -->
+        <view class="sets-detail">
+          <view class="sets-detail-header">
+            <text class="sd-col-number">组</text>
+            <text class="sd-col-reps">次数</text>
+            <text class="sd-col-weight">重量</text>
+          </view>
+          <view
+            wx:for="{{item.sets}}"
+            wx:key="sort"
+            class="sets-detail-row"
+          >
+            <text class="sd-col-number">{{item.sort}}</text>
+            <text class="sd-col-reps">{{item.reps}}</text>
+            <text class="sd-col-weight">{{item.weight > 0 ? item.weight + ' kg' : '自重'}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 备注 -->
+    <view wx:if="{{record.note}}" class="note-section">
+      <text class="note-label">训练备注</text>
+      <text class="note-text">{{record.note}}</text>
+    </view>
+
+    <!-- 编辑按钮 -->
+    <view class="history-actions">
+      <van-button round block bind:click="onEdit">编辑训练</van-button>
+    </view>
+  </view>
+</view>

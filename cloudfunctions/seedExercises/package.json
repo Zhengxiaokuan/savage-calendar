@@ -1,0 +1,9 @@
+{
+  "name": "seedExercises",
+  "version": "1.0.0",
+  "description": "初始化预设动作库",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "latest"
+  }
+}

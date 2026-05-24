@@ -1,0 +1,9 @@
+{
+  "name": "savage-calendar",
+  "version": "1.0.0",
+  "description": "野蛮日历 - 健身记录小程序",
+  "main": "app.js",
+  "dependencies": {
+    "@vant/weapp": "^1.11.0"
+  }
+}

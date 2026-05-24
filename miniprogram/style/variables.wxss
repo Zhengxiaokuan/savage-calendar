@@ -1,0 +1,38 @@
+/* 野蛮日历 - 主题变量 */
+:root, page {
+  /* 主色调 - 深色系 */
+  --bg-primary: #0f0f23;
+  --bg-secondary: #1a1a2e;
+  --bg-card: #16213e;
+  --bg-hover: #1e2a4a;
+
+  /* 强调色 - 火焰橙 */
+  --color-primary: #e94560;
+  --color-primary-light: #ff6b81;
+  --color-primary-dark: #c23152;
+
+  /* 功能色 */
+  --color-success: #2ed573;
+  --color-warning: #ffa502;
+  --color-danger: #ff4757;
+  --color-info: #5352ed;
+
+  /* 文字色 */
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0c8;
+  --text-muted: #6c6c8a;
+  --text-accent: #e94560;
+
+  /* 边框 */
+  --border-color: #2a2a4a;
+  --border-radius: 12rpx;
+  --border-radius-sm: 8rpx;
+  --border-radius-lg: 16rpx;
+
+  /* 间距 */
+  --spacing-xs: 8rpx;
+  --spacing-sm: 16rpx;
+  --spacing-md: 24rpx;
+  --spacing-lg: 32rpx;
+  --spacing-xl: 48rpx;
+}

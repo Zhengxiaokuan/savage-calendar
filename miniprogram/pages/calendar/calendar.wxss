@@ -1,0 +1,139 @@
+.page-calendar {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* 统计条 */
+.stats-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: var(--bg-secondary);
+  margin: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md) 0;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.stat-value {
+  font-size: 40rpx;
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+.stat-label {
+  font-size: 22rpx;
+  color: var(--text-muted);
+  margin-top: 4rpx;
+}
+
+.stat-divider {
+  width: 1rpx;
+  height: 48rpx;
+  background: var(--border-color);
+}
+
+/* 操作区 */
+.action-area {
+  flex: 1;
+  margin: 0 var(--spacing-md);
+}
+
+.selected-date-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  padding: 0 var(--spacing-xs);
+}
+
+.selected-date-text {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.today-badge {
+  font-size: 20rpx;
+  color: var(--color-primary);
+  background: rgba(233, 69, 96, 0.15);
+  padding: 2rpx 12rpx;
+  border-radius: 20rpx;
+}
+
+/* 训练预览卡片 */
+.workout-preview {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md);
+}
+
+.preview-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-sm);
+}
+
+.preview-title {
+  font-size: 28rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.preview-count {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+
+.preview-exercises {
+  margin-bottom: var(--spacing-md);
+}
+
+.preview-exercise {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-xs) 0;
+}
+
+.preview-exercise-name {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+.preview-exercise-sets {
+  font-size: 24rpx;
+  color: var(--text-muted);
+}
+
+.preview-more {
+  font-size: 24rpx;
+  color: var(--text-muted);
+  padding: var(--spacing-xs) 0;
+}
+
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.action-placeholder {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md);
+}
+
+.bottom-nav {
+  text-align: center;
+  padding: var(--spacing-md);
+  margin-top: auto;
+}

@@ -1,0 +1,172 @@
+<view class="page-workout">
+  <!-- 日期头 -->
+  <view class="workout-date-header">
+    <van-icon name="underway-o" />
+    <text class="workout-date-text">{{date}}</text>
+  </view>
+
+  <!-- 训练动作列表 -->
+  <view class="exercise-list">
+    <view
+      wx:for="{{exercises}}"
+      wx:key="exerciseId"
+      class="exercise-card"
+    >
+      <!-- 动作头部 -->
+      <view class="exercise-header">
+        <view class="exercise-info">
+          <text class="exercise-name">{{item.name}}</text>
+          <text class="exercies-category">{{item.category}}</text>
+        </view>
+        <van-icon
+          name="delete"
+          color="var(--color-danger)"
+          data-index="{{index}}"
+          bind:click="onRemoveExercise"
+        />
+      </view>
+
+      <!-- 组列表 -->
+      <view class="sets-list">
+        <view class="sets-header">
+          <text class="set-col-number">组号</text>
+          <text class="set-col-reps">次数</text>
+          <text class="set-col-weight">重量(kg)</text>
+          <text class="set-col-action"></text>
+        </view>
+        <view
+          wx:for="{{item.sets}}"
+          wx:key="sort"
+          class="set-row"
+        >
+          <text class="set-col-number">{{item.sort}}</text>
+          <view class="set-col-reps">
+            <van-stepper
+              value="{{item.reps}}"
+              min="1"
+              max="999"
+              step="1"
+              data-ex-index="{{index}}"
+              data-set-index="{{item.sort - 1}}"
+              bind:change="onRepsChange"
+            />
+          </view>
+          <view class="set-col-weight">
+            <van-stepper
+              value="{{item.weight}}"
+              min="0"
+              max="999"
+              step="0.5"
+              data-ex-index="{{index}}"
+              data-set-index="{{item.sort - 1}}"
+              bind:change="onWeightChange"
+            />
+          </view>
+          <view class="set-col-action">
+            <van-icon
+              name="close"
+              size="32rpx"
+              color="var(--text-muted)"
+              data-ex-index="{{index}}"
+              data-set-index="{{item.sort - 1}}"
+              bind:click="onRemoveSet"
+            />
+          </view>
+        </view>
+      </view>
+
+      <!-- 添加组 -->
+      <view class="add-set-btn" data-ex-index="{{index}}" bind:click="onAddSet">
+        <van-icon name="plus" size="28rpx" color="var(--color-primary)" />
+        <text class="add-set-text">添加一组</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:if="{{exercises.length === 0}}" class="empty-state">
+    <van-empty description="暂无训练动作">
+      <van-button
+        round
+        type="primary"
+        size="small"
+        bind:click="onOpenExercisePicker"
+      >添加动作</van-button>
+    </van-empty>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-actions safe-bottom">
+    <van-button
+      icon="add"
+      round
+      plain
+      type="primary"
+      bind:click="onOpenExercisePicker"
+      data-waiting="{{saving}}"
+    >添加动作</van-button>
+    <van-button
+      round
+      type="primary"
+      loading="{{saving}}"
+      bind:click="onSave"
+    >保存训练</van-button>
+  </view>
+
+  <!-- 动作选择弹窗 -->
+  <van-popup
+    show="{{showExercisePicker}}"
+    position="bottom"
+    round
+    closeable
+    bind:close="onCloseExercisePicker"
+    custom-style="max-height: 70vh;"
+  >
+    <view class="exercise-picker">
+      <view class="picker-title">选择动作</view>
+
+      <!-- 分类标签 -->
+      <scroll-view scroll-x class="category-tabs">
+        <view
+          wx:for="{{exerciseCategories}}"
+          wx:for-item="exercises"
+          wx:for-index="key"
+          wx:key="key"
+          class="category-tab {{currentCategory === key ? 'active' : ''}}"
+          data-category="{{key}}"
+          bind:click="onSwitchCategory"
+        >
+          {{key}}
+        </view>
+      </scroll-view>
+
+      <!-- 当前分类动作列表 -->
+      <scroll-view scroll-y class="exercise-list-scroll">
+        <view
+          wx:for="{{exerciseCategories[currentCategory]}}"
+          wx:key="_id"
+          class="exercise-picker-item {{isSelected(item._id) ? 'selected' : ''}}"
+          data-exercise="{{item}}"
+          bind:click="onToggleExercise"
+        >
+          <text class="picker-exercise-name">{{item.name}}</text>
+          <van-icon
+            name="{{isSelected(item._id) ? 'success' : 'plus'}}"
+            color="{{isSelected(item._id) ? 'var(--color-success)' : 'var(--text-muted)'}}"
+            size="36rpx"
+          />
+        </view>
+      </scroll-view>
+
+      <!-- 确认按钮 -->
+      <view class="picker-confirm">
+        <van-button
+          round
+          block
+          type="primary"
+          bind:click="onConfirmAddExercises"
+        >添加 ({{selectedExercises.length}})</van-button>
+      </view>
+    </view>
+  </van-popup>
+</view>

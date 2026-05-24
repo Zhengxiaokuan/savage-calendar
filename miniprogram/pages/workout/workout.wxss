@@ -1,0 +1,218 @@
+.page-workout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 120rpx;
+}
+
+/* 日期头 */
+.workout-date-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--bg-secondary);
+  margin: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius-lg);
+}
+
+.workout-date-text {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* 动作卡片 */
+.exercise-list {
+  padding: 0 var(--spacing-md);
+}
+
+.exercise-card {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.exercise-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--spacing-sm);
+}
+
+.exercise-info {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.exercise-name {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.exercies-category {
+  font-size: 22rpx;
+  color: var(--color-primary);
+  background: rgba(233, 69, 96, 0.12);
+  padding: 2rpx 12rpx;
+  border-radius: 20rpx;
+}
+
+/* 组列表 */
+.sets-list {
+  margin-bottom: var(--spacing-sm);
+}
+
+.sets-header {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xs) 0;
+  border-bottom: 1rpx solid var(--border-color);
+  margin-bottom: var(--spacing-xs);
+}
+
+.set-col-number {
+  width: 80rpx;
+  font-size: 22rpx;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.set-col-reps {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.set-col-weight {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.set-col-action {
+  width: 60rpx;
+  display: flex;
+  justify-content: center;
+}
+
+.set-row {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-xs) 0;
+}
+
+.set-row .set-col-number {
+  font-size: 26rpx;
+  color: var(--text-secondary);
+}
+
+/* 添加组按钮 */
+.add-set-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm);
+  border: 1rpx dashed var(--border-color);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+}
+
+.add-set-text {
+  font-size: 24rpx;
+  color: var(--color-primary);
+}
+
+/* 空状态 */
+.empty-state {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 底部操作栏 */
+.bottom-actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--bg-primary);
+  border-top: 1rpx solid var(--border-color);
+}
+
+.bottom-actions van-button {
+  flex: 1;
+}
+
+/* 动作选择弹窗 */
+.exercise-picker {
+  padding: var(--spacing-lg);
+}
+
+.picker-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  text-align: center;
+}
+
+.category-tabs {
+  display: flex;
+  white-space: nowrap;
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-xs);
+}
+
+.category-tab {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  margin-right: var(--spacing-sm);
+  font-size: 24rpx;
+  color: var(--text-secondary);
+  background: var(--bg-card);
+  border-radius: 30rpx;
+}
+
+.category-tab.active {
+  color: var(--text-primary);
+  background: var(--color-primary);
+}
+
+.exercise-list-scroll {
+  max-height: 500rpx;
+}
+
+.exercise-picker-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) 0;
+  border-bottom: 1rpx solid var(--border-color);
+}
+
+.exercise-picker-item.selected {
+  background: rgba(46, 213, 115, 0.05);
+  margin: 0 -var(--spacing-lg);
+  padding-left: var(--spacing-lg);
+  padding-right: var(--spacing-lg);
+}
+
+.picker-exercise-name {
+  font-size: 28rpx;
+  color: var(--text-primary);
+}
+
+.picker-confirm {
+  margin-top: var(--spacing-md);
+  padding-top: var(--spacing-md);
+  border-top: 1rpx solid var(--border-color);
+}

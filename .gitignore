@@ -1,0 +1,20 @@
+# Dependencies
+node_modules/
+miniprogram_npm/
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# Logs
+*.log
+npm-debug.log*
+
+# Local / private config（含本地路径、libVersion 等个人设置）
+project.private.config.json
+
+# Cloud function builds
+cloudfunctions/*/node_modules/

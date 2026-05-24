@@ -1,0 +1,86 @@
+.calendar {
+  background: var(--bg-secondary);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md);
+  margin: var(--spacing-md);
+}
+
+.calendar-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-sm) var(--spacing-xs);
+  margin-bottom: var(--spacing-sm);
+}
+
+.calendar-title {
+  font-size: 32rpx;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-bottom: var(--spacing-xs);
+}
+
+.weekday {
+  text-align: center;
+  font-size: 24rpx;
+  color: var(--text-muted);
+  padding: var(--spacing-xs) 0;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4rpx;
+}
+
+.calendar-day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 80rpx;
+  position: relative;
+  border-radius: var(--border-radius-sm);
+  transition: background 0.2s;
+}
+
+.calendar-day:active {
+  background: var(--bg-hover);
+}
+
+.day-number {
+  font-size: 28rpx;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.day-dot {
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  background: var(--color-success);
+  margin-top: 4rpx;
+}
+
+.today .day-number {
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.today {
+  background: rgba(233, 69, 96, 0.1);
+  border-radius: var(--border-radius-sm);
+}
+
+.dimmed .day-number {
+  color: var(--text-muted);
+}
+
+.marked.dimmed .day-dot {
+  background: var(--text-muted);
+}

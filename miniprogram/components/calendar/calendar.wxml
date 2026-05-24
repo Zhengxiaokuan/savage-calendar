@@ -1,0 +1,28 @@
+<view class="calendar">
+  <!-- 头部：年月切换 -->
+  <view class="calendar-header">
+    <van-icon name="arrow-left" bind:click="prevMonth" />
+    <text class="calendar-title">{{year}}年{{month}}月</text>
+    <van-icon name="arrow" bind:click="nextMonth" />
+  </view>
+
+  <!-- 星期行 -->
+  <view class="calendar-weekdays">
+    <view wx:for="{{weekDays}}" wx:key="index" class="weekday">{{item}}</view>
+  </view>
+
+  <!-- 日期网格 -->
+  <view class="calendar-grid">
+    <view
+      wx:for="{{days}}"
+      wx:key="date"
+      class="calendar-day {{item.isToday ? 'today' : ''}} {{item.isMarked ? 'marked' : ''}} {{!item.isCurrentMonth ? 'dimmed' : ''}}"
+      data-date="{{item.date}}"
+      data-is-current-month="{{item.isCurrentMonth}}"
+      bind:tap="onDateTap"
+    >
+      <view class="day-number">{{item.day}}</view>
+      <view wx:if="{{item.isMarked}}" class="day-dot"></view>
+    </view>
+  </view>
+</view>
